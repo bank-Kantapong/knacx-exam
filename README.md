@@ -14,7 +14,7 @@
 
 1. Clone โปรเจ็ค
 ```bash
-git clone <repository-url>
+git clone https://github.com/bank-Kantapong/knacx-exam.git
 ```
 2. ติดตั้ง dependencies สำหรับ client
 ```bash

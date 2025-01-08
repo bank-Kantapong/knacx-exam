@@ -30,7 +30,9 @@ const AddProductModal = ({
   return (
     <Form form={form} onFinish={onSubmit} className="mt-6">
       <Modal
-        title={formData ? `แก้ไขสินค้า "${formData.name}"` : "เพิ่มรายการสินค้า"}
+        title={
+          formData ? `แก้ไขสินค้า "${formData.name}"` : "เพิ่มรายการสินค้า"
+        }
         open={open}
         centered
         closeIcon={null}
@@ -46,6 +48,7 @@ const AddProductModal = ({
         <div className="flex flex-col gap-2">
           <h2 className="font-bold text-md">ชื่อสินค้า</h2>
           <Form.Item
+            initialValue={""}
             name="name"
             rules={[{ required: true, message: "กรุณากรอกชื่อสินค้า" }]}
           >
@@ -55,6 +58,7 @@ const AddProductModal = ({
         <div className="flex flex-col gap-2">
           <h2 className="font-bold text-md">ราคา</h2>
           <Form.Item
+            initialValue={""}
             name="price"
             rules={[{ required: true, message: "กรุณากรอกราคา" }]}
           >

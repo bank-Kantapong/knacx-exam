@@ -44,7 +44,7 @@ const ProductManagement = () => {
       if (selectedFormData) {
         const newPrev = prev.map((productItem) =>
           productItem.key === selectedFormData.key
-            ? { ...productItem, ...values }
+            ? { ...productItem, ...values, updated_at: dayjs().format("DD/MM/YYYY") }
             : productItem
         );
         localStorage.setItem("products", JSON.stringify(newPrev));
@@ -52,7 +52,7 @@ const ProductManagement = () => {
       } else {
         const newProduct = {
           ...values,
-          key: products.length + 1,
+          key: Date.now(),
           updated_at: dayjs().format("DD/MM/YYYY"),
         };
         const newPrev = [...prev, newProduct];
@@ -159,7 +159,7 @@ const ProductManagement = () => {
             Export to CSV
           </Button>
         </div>
-        <Table dataSource={products} columns={columns} pagination={false} />
+        <Table dataSource={products} columns={columns} pagination={false} rowKey="key" />
       </div>
       <AddProductModal
         open={openAddProduct}
